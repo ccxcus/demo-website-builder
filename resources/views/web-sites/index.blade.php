@@ -36,8 +36,12 @@
                                     <td>{{$w->descirption}}</td>
                                     <td>
                                         <div class="flex justify-between space-x-4">
+                                            <a href="{{ route('websites.edit-web', $w->id) }}" class="border border-green-500 text-green-500 bg-green-200 px-2 py-1 rounded-md">
+                                                Edit Web
+                                            </a>
+
                                             <a href="{{ route('websites.edit', $w->id) }}" class="border border-blue-500 text-blue-500 bg-blue-200 px-2 py-1 rounded-md">
-                                                Edit
+                                                Edit config
                                             </a>
 
                                             <form action="{{ route('websites.destroy', $w->id) }}" method="POST">

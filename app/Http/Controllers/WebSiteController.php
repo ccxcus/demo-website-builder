@@ -45,6 +45,8 @@ class WebSiteController extends Controller
         ]);
 
         $request['user_id'] = auth()->id();
+        $request['body'] = '<div class="txt-red">Hello CCxC!</div>';
+        $request['styles'] = '.txt-red{color: red}';
 
         WebSite::create($request->all());
 
@@ -107,5 +109,17 @@ class WebSiteController extends Controller
 
         return redirect()->route('web-sites.index')
             ->with('success', 'WebSite deleted successfully');
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\WebSite  $website
+     * @return \Illuminate\Http\Response
+     */
+    public function editWeb(WebSite $website)
+    {
+        return view('web-sites.edit-web', compact('website'));
     }
 }

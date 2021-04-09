@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WebSiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('websites', \App\Http\Controllers\WebSiteController::class)
+Route::resource('websites', WebSiteController::class)
     ->middleware(['auth']);
+
+Route::match(['get', 'post'], 'websites/edit-web/{website}', [WebSiteController::class, 'editWeb'])
+->middleware(['auth'])->name('websites.edit-web');
 
 require __DIR__.'/auth.php';

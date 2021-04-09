@@ -26,6 +26,9 @@ class WebSiteFactory extends Factory
             'title' => $this->faker->company,
             'description' => $this->faker->sentence,
             'user_id' => 1,
+
+            'body' => '<div class="txt-red">Hello CCxC!</div>',
+            'styles' => '.txt-red{color: red}',
         ];
     }
 }
