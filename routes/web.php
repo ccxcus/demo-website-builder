@@ -25,7 +25,10 @@ Route::get('/dashboard', function () {
 Route::resource('websites', WebSiteController::class)
     ->middleware(['auth']);
 
-Route::match(['get', 'post'], 'websites/edit-web/{website}', [WebSiteController::class, 'editWeb'])
+Route::match(['get'], 'websites/edit-web/{website}', [WebSiteController::class, 'editWeb'])
+->middleware(['auth'])->name('websites.edit-web');
+
+Route::match(['post'], 'websites/edit-web/{website}', [WebSiteController::class, 'editWebUpdate'])
 ->middleware(['auth'])->name('websites.edit-web');
 
 require __DIR__.'/auth.php';

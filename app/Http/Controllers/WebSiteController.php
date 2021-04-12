@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\WebSite;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class WebSiteController extends Controller
 {
@@ -111,7 +112,6 @@ class WebSiteController extends Controller
             ->with('success', 'WebSite deleted successfully');
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -121,5 +121,21 @@ class WebSiteController extends Controller
     public function editWeb(WebSite $website)
     {
         return view('web-sites.edit-web', compact('website'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\WebSite  $website
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editWebUpdate(WebSite $website)
+    {
+        $website->update([
+            'body' => request()->get('data')['gjs-html'],
+            'styles' => request()->get('data')['gjs-css'],
+        ]);
+
+        return response()->json(['success' => true], Response::HTTP_OK);
     }
 }
