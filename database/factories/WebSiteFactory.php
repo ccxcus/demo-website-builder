@@ -29,6 +29,7 @@ class WebSiteFactory extends Factory
 
             'body' => '<div class="txt-red">Hello CCxC!</div>',
             'styles' => '.txt-red{color: red}',
+            'slug' => $this->faker->slug,
         ];
     }
 }

@@ -31,4 +31,7 @@ Route::match(['get'], 'websites/edit-web/{website}', [WebSiteController::class, 
 Route::match(['post'], 'websites/edit-web/{website}', [WebSiteController::class, 'editWebUpdate'])
 ->middleware(['auth'])->name('websites.edit-web');
 
+Route::get('web/{slug}', [WebSiteController::class, 'showWebsite'])
+    ->name('websites.show');
+
 require __DIR__.'/auth.php';

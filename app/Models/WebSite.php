@@ -16,6 +16,7 @@ class WebSite extends Model
         'title',
         'description',
         'body',
+        'slug',
         'styles',
         'user_id',
     ];

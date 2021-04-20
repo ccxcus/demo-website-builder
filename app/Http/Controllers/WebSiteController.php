@@ -138,4 +138,11 @@ class WebSiteController extends Controller
 
         return response()->json(['success' => true], Response::HTTP_OK);
     }
+
+    public function showWebsite($slug)
+    {
+        $website = WebSite::where('slug', '=', $slug)->firstOrFail();;
+
+        return view('web-sites.show', compact('website'));
+    }
 }

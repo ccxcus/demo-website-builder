@@ -20,6 +20,7 @@ class CreateWebSitesTable extends Migration
             $table->string('description');
             $table->text('body')->nullable();
             $table->text('styles')->nullable();
+            $table->text('slug');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');

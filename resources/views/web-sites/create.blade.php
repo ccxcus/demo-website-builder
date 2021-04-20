@@ -23,34 +23,30 @@
                     <form action="{{ route('websites.store') }}" method="POST">
                         @csrf
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Name:</strong>
-                                    <input type="text" name="name" class="form-control" placeholder="Name" {{ old('name') }}>
-                                </div>
+                        <div class="container">
+                            <div class="w-full my-2">
+                                <label class="block font-bold">Name:</label>
+                                <input type="text" name="name" class="w-full rounded" placeholder="Name" value="{{ old('name') }}">
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Title:</strong>
-                                    <input type="text" name="title" class="form-control" placeholder="Title" value="{{ old('title') }}">
-                                </div>
+                            <div class="w-full my-2">
+                                <label class="block font-bold">Title:</label>
+                                <input type="text" name="title" class="w-full rounded" placeholder="Title" value="{{ old('title') }}">
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Description:</strong>
-                                    <textarea class="form-control" style="height:50px" name="description"
-                                              placeholder="description">{{ old('description') }}</textarea>
-                                </div>
+                            <div class="w-full my-2">
+                                <label class="block font-bold">Slug:</label>
+                                <input type="text" name="slug" class="w-full rounded" placeholder="Slug" value="{{ old('slug') }}">
                             </div>
 
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <x-button type="submit" class="btn btn-primary">Submit</x-button>
+                            <div class="w-full my-2">
+                                <label class="block font-bold">Description:</label>
+                                <textarea class="w-full rounded" style="height:150px" name="description"
+                                          placeholder="description">{{ old('description') }}</textarea>
                             </div>
+
+                            <x-button type="submit" class="btn btn-primary">Submit</x-button>
                         </div>
-
                     </form>
                 </div>
             </div>
